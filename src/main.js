@@ -8,12 +8,14 @@ import IndexPage from './pages/index.vue';
 // 组件
 import yHeader from './comonents/yHeader.vue';
 import tabbar from './comonents/tabbar.vue';
+import tabContainer from './comonents/tabContainer.vue';
 
 Vue.component('App' , App);
 Vue.component('IndexPage' , IndexPage);
 
 Vue.component('yHeader' , yHeader);
 Vue.component('tabbar' , tabbar);
+Vue.component('tabContainer' , tabContainer);
 
 Vue.use(VueRouter);
 const router = new VueRouter({

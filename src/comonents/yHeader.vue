@@ -1,5 +1,5 @@
 <template>
-    <header>
+    <header id="yHeader">
         <slot name="back"></slot>
         <span class="title">WeChat</span>
         <slot name="right"></slot>
@@ -16,6 +16,7 @@ export default {
 header{
     position: fixed;
     width: 100%;
+    line-height: 18px;
     background-color: #666;
     padding: 0.4rem;
     color: #fff;
