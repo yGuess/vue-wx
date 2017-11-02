@@ -14,15 +14,27 @@ export default {
 
 <style scope>
 header{
+    overflow: hidden;
     position: fixed;
+    z-index: 9999;
     width: 100%;
-    line-height: 18px;
+    height: 1.25rem;
+    line-height: 1.25rem;
     background-color: #666;
-    padding: 0.4rem;
     color: #fff;
     font-size: 18px;
+    padding-left: 0.4rem;
+    box-sizing: border-box;
 }
-.title{
+header .title{
     font-weight: 500;
+    display: inline-block;
+}
+header img{
+    width: 0.9rem;
+    padding: 0.175rem 0;
+}
+header img:active{
+    background-color: rgba(0, 0, 0, .2);
 }
 </style>

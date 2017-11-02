@@ -1,6 +1,9 @@
 <template>
     <div id="tabbar">
-        <div class="tabbar-item" :class="selected == 0 ? 'active' : ''" data-pos="0" @click="bindSwitchTab(0)">
+        <div class="tabbar-item" 
+             :class="selected == 0 ? 'active' : ''" 
+             data-pos="0" 
+             @click="bindSwitchTab(0)">
             <img :src="'../../assets/weixin_resource/tabbar/ala' + (selected == 0 ? '_press' : '') + '.png'" alt="">
             <p>WeChat</p>
         </div>
@@ -22,14 +25,22 @@
 <script>
 export default {
     name: 'tabbar',
+    props: {
+        selected: [Number,String]
+    },
     data(){
         return {
-            selected: 0
+            tab: this.selected
         }
     },
     methods: {
         bindSwitchTab: function(pos){
-            this.selected = pos;
+            this.$parent.selected = pos;
+        }
+    },
+    watch: {
+        selected: function(nv){
+            this.tab = nv;
         }
     }
 }

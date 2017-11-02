@@ -5,27 +5,7 @@
          @touchend="touchEnd">
         <div class="wrap-tab-container" 
              ref="wrapConItems">
-             <!-- v-show="displayPos == 0 || isTouch" -->
-            <div class="container-item">
-                <ul>
-                    <li v-for="n in 6" :key="n">{{n}}</li>
-                </ul>
-            </div>
-            <div class="container-item">
-                <ul>
-                    <li v-for="n in 7" :key="n">{{n}}</li>
-                </ul>
-            </div>
-            <div class="container-item">
-                <ul>
-                    <li v-for="n in 8" :key="n">{{n}}</li>
-                </ul>
-            </div>
-            <div class="container-item">
-                <ul>
-                    <li v-for="n in 9" :key="n">{{n}}</li>
-                </ul>
-            </div>
+             <slot></slot>
         </div>
     </div>
 </template>
@@ -33,17 +13,19 @@
 <script>
 export default {
     name: 'tabContainer',
+    props: {
+        selected: [Number,String]       
+    },
     data(){
         return {
-             displayPos: 0,       //当前展示的自容器
-
-             startTouchPoint: '', //touch初始点
-             container: '',       //".wrap-tab-container"节点
-             chilren: '',         //所有子容器的节点
-             pageWidth: '',       //容器宽度
-             minTouchWidth: '',   //切换所需滑动的最小距离
-             isTouch: false,      //点击状态
-             distance: ''         //拖动的距离
+            displayPos: this.selected,        //当前展示的子容器
+            startTouchPoint: '', //touch初始点
+            container: '',       //子节点的父元素
+            chilren: '',         //所有子容器的节点
+            pageWidth: '',       //容器宽度
+            minTouchWidth: '',   //切换所需滑动的最小距离
+            isTouch: false,      //点击状态
+            distance: ''         //拖动的距离
         }
     },
     mounted: function(){
@@ -73,19 +55,34 @@ export default {
             this.distance = distance;
             this.container.style.webkitTransform = `translateX(${currentItemPos}px)`;
         },
-        touchEnd(){
+        touchEnd(evt){
             this.isTouch = false;
 
             if(Math.abs(this.distance) > this.minTouchWidth){
                 this.distance > 0 ? this.displayPos-- : this.displayPos++;
+                this.$parent.selected = this.displayPos;
             }
-            this.container.classList.add('transition');
-            this.container.style.webkitTransform = `translateX(${-this.displayPos * this.pageWidth}px)`;
+            this.transformSwitch();
 
-            console.log(this.displayPos);
-            setTimeout(()=>{
-                this.container.classList.remove('transition');
-            } , 100);
+            // 阻止点击切换子容器
+            this.startTouchPoint = 0;
+            this.distance = 0;
+        },
+        transformSwitch(isSilde=true){
+            if(isSilde){
+                this.container.classList.add('transition');
+                setTimeout(()=>{
+                    this.container.classList.remove('transition');
+                } , 100);
+            }
+
+            this.container.style.webkitTransform = `translateX(${-this.displayPos * this.pageWidth}px)`;
+        }
+    },
+    watch: {
+        selected: function(nv){
+            this.displayPos = nv;
+            this.transformSwitch(false);
         }
     }
 }
@@ -93,15 +90,22 @@ export default {
 
 <style scoped>
 #tabContainer{
-    position: relative;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
+    position: relative;
+    padding-top: 1.25rem;
+    box-sizing: border-box;
 }
 .wrap-tab-container{
+    width: 100%;
+    height: 100%;
     display: flex;
     transform: translateX(0);
 }
 .container-item{
     width: 100%;
+    overflow: scroll;
     flex-shrink: 0;
     background-color: lightblue;
 }
