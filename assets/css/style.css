@@ -1,6 +1,8 @@
 html{
     height: 100%;
 }
+body{
+}
 ul,ol{
     list-style: none;
     -webkit-padding-start: 0;
@@ -71,8 +73,6 @@ a{
     background-color: rgba(144, 144, 144, .2);
 }
 .list-chat li:last-child{
-    margin-bottom: calc(1.2rem + 14px);
-    margin-bottom: -webkit-calc(1.2rem + 14px);
     border-bottom: none;
 }
 .list-chat .icon-chat{
@@ -104,19 +104,24 @@ a{
 }
 
 /* 列表样式 */
-.list-base{
+.list-base{}
+.list-base li{
     background-color: #fff;
 }
 .list-base li:active{
     background-color: rgba(144, 144, 144, .2);
 }
+.list-base li > a,
 .list-base li > div{
+    display: block;
+    color: #333;
     margin: 0 0.4rem;
     padding: 0.25rem 0;
     height: 1rem;
     line-height: 1rem;
     border-bottom: 0.5px solid #e1e1e1;
 }
+.list-base li:last-child > a,
 .list-base li:last-child > div{
     border-bottom: none;
 }
@@ -131,7 +136,7 @@ a{
 }
 .item-base{
     display: inline-block;
-    font-size: 16px;
+    font-size: 18px;
     margin-left: 0.15rem;
 }
 
@@ -167,4 +172,14 @@ a{
     width: 0.6rem;
     height: 0.6rem;
     margin-top: 0.45rem;
+}
+
+/* header - more */
+.icon{
+    height: 100%;
+    padding: 0 0.2rem;
+    display: inline-block;
+}
+.icon:active{
+    background-color: rgba(0, 0, 0, .2);
 }

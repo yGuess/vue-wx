@@ -33,6 +33,8 @@ export default {
         this.pageWidth = this.container.clientWidth;
         this.minTouchWidth = this.pageWidth / 4;   
         this.children = Array.prototype.slice.call(this.container.children);
+
+        console.log(this.pageWidth);
     },
     methods: {
         touchStart(evt){
@@ -107,7 +109,8 @@ export default {
     width: 100%;
     overflow: scroll;
     flex-shrink: 0;
-    background-color: lightblue;
+    margin-bottom: calc(1.2rem + 14px);
+    margin-bottom: -webkit-calc(1.2rem + 14px);
 }
 .transition{
     transition: transform .1s linear;
