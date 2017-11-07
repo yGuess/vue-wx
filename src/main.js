@@ -8,6 +8,10 @@ import Contacts from './pages/contacts.vue';
 import Wallet from './pages/wallet.vue';
 import CircleOfFriends from './pages/circleOfFriends.vue';
 import ListContacts from './pages/listContacts.vue';
+import PersonalPage from './pages/personalPage.vue';
+import MorePersonalPage from './pages/morePersonalPage.vue';
+import OfficialAccount from './pages/officialAccount.vue';
+import ChatPage from './pages/chatPage.vue';
 
 // 组件
 import yHeader from './comonents/yHeader.vue';
@@ -19,6 +23,10 @@ Vue.component('IndexPage' , IndexPage);
 Vue.component('Contacts' , Contacts);
 Vue.component('Wallet' , Wallet);
 Vue.component('CircleOfFriends' , CircleOfFriends);
+Vue.component('PersonalPage' , PersonalPage);
+Vue.component('MorePersonalPage' , MorePersonalPage);
+Vue.component('OfficialAccount' , OfficialAccount);
+Vue.component('ChatPage' , ChatPage);
 
 Vue.component('yHeader' , yHeader);
 Vue.component('tabbar' , tabbar);
@@ -41,6 +49,26 @@ const router = new VueRouter({
             path: '/circleOfFriends',
             name: 'circleOfFriends',
             component: CircleOfFriends  
+        },
+        {
+            path: '/personalPage',
+            name: 'personalPage',
+            component: PersonalPage  
+        },
+        {
+            path: '/personalPage/morePersonalPage',
+            name: 'morePersonalPage',
+            component: MorePersonalPage  
+        },
+        {
+            path: '/officialAccount',
+            name: 'officialAccount',
+            component: OfficialAccount  
+        },
+        {
+            path: '/chat',
+            name: 'chat',
+            component: ChatPage  
         }
     ]
 });

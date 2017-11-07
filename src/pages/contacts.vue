@@ -32,14 +32,14 @@
                 </div>
             </li>
             <li>
-                <div>
+                <router-link :to="{path: '/officialAccount'}">
                     <div class="icon-base">
                         <img src="../../assets/weixin_resource/icons/a_h.png" alt="icon">
                     </div>
                     <div class="item-base text">
                         <p class="title one-line">官方账号</p>
                     </div>
-                </div>
+                </router-link>
             </li>
         </ul>
         <ListContacts :transFormX="transFormX"></ListContacts>

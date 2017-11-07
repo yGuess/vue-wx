@@ -30,13 +30,15 @@
             <div class="container-item">
                 <ul class="list-chat">
                     <li class="clearfix" v-for="n in 9" :key="n">
-                        <div class="fl icon-chat">
-                            <img src="../../assets/weixin_resource/icon.png" alt="头像">
-                        </div>
-                        <div class="item-chat info-chat">
-                            <p class="title one-line">会写代码的有钱人和我<span class="fr">下午1:23</span></p>
-                            <p class="content one-line">牛奶: 别人配主机看到六核十二线程</p>
-                        </div>
+                        <router-link :to="{path: '/chat'}">
+                            <div class="fl icon-chat">
+                                <img src="../../assets/weixin_resource/icon.png" alt="头像">
+                            </div>
+                            <div class="item-chat info-chat">
+                                <p class="title one-line">会写代码的有钱人和我<span class="fr">下午1:23</span></p>
+                                <p class="content one-line">牛奶: 别人配主机看到六核十二线程</p>
+                            </div>                        
+                        </router-link>
                     </li>
                 </ul>
             </div>
@@ -96,7 +98,7 @@
                 </ul>
             </div>
             <div class="container-item">
-                <div class="personal">
+                <router-link :to="{path: '/personalPage'}" class="personal">
                     <div class="personal-avatar">
                         <img src="../../assets/weixin_resource/my_avatar.jpg" alt="avatar">
                     </div>
@@ -105,10 +107,10 @@
                         <p class="wx-id">WeChat ID: Cry_and_Sing</p>
                     </div>
                     <img class="min-qrcode fr" src="../../assets/weixin_resource/icons/a_f.png" alt="qrcode">
-                </div>
+                </router-link>
                 <ul class="list-base setting">
                     <li class="mb0_4">
-                        <router-link :to="{path: '/wallet'}">
+                        <router-link class="nav-url" :to="{path: '/wallet'}">
                             <div class="icon-base">
                                 <img src="../../assets/weixin_resource/icons/aka.png" alt="icon">
                             </div>
@@ -252,4 +254,19 @@ export default {
 .mt0_4{
     margin-top: 0.4rem;
 }
+
+.nav-url,
+.personal{
+    margin: 0;
+    display: block;
+    color: #000;
+    margin: 0.4rem 0;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+}
+.nav-url:active,
+.personal:active{
+    background-color: rgba(0, 0, 0, .2);
+}
+
 </style>

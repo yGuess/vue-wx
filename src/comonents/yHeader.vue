@@ -2,8 +2,8 @@
     <header id="yHeader">
         <span @click="back" 
               v-show="hCont.back" 
-              class="back icon-left-open-1"></span>
-        <span class="title">{{hCont.title}}</span>
+              class="back fl icon-left-open-1"></span>
+        <span class="title one-line">{{hCont.title}}</span>
         <slot name="right"></slot>
         <slot name="plusList"></slot>
     </header>
@@ -47,6 +47,7 @@ header{
 header .title{
     font-weight: 500;
     display: inline-block;
+    max-width: 6rem;
 }
 header img{
     width: 0.9rem;

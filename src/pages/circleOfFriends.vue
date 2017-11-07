@@ -29,13 +29,24 @@
                                 <span class="msg-time">8分钟</span>
                                 <span @click="controlMsgOperate" v-bind:data-index="n-1" class="fr icon-dot-3"></span>
                                 <p class="btns" :class="showMsgOperatePos == (n - 1) && showMsgOperate ? 'show' : ''">
-                                    <span class="like icon-heart-empty-1">赞</span><span class="commet icon-comment">评论</span>
+                                    <span class="like icon-heart-empty-1">赞</span>
+                                    <span :data-index="n-1" 
+                                          @click="startCommet" 
+                                          class="commet icon-comment">评论</span>
                                 </p>
                             </div>
                         </div>
                     </li>
                 </ul>
             </div>
+        </div>
+        <div v-show="isShowCommet" class="user-input">
+            <div class="wrap-input">
+                <input autofocus class="content_chat input" type="text" v-model="value">
+                <img src="../../assets/weixin_resource/icons/sz.png" alt="keyboard_expressions">
+                <button class="sendMsg btn" :disabled="!value">传送</button>
+            </div>
+            <div class="expressions wrap-icons"></div>
         </div>
         <img class="loading" 
              ref="loading"
@@ -60,7 +71,10 @@ export default {
             isScroll: false,         // 是否在拖动,
             yDistance: 0,            // 垂直方向移动距离
             initPosY: 0,             // 拖拽起点
-            degree: 0                // load_icon旋转角度
+            degree: 0 ,              // load_icon旋转角度
+
+            isShowCommet: false,
+            value: ''                // 输入
         }
     },
     methods: {
@@ -74,6 +88,11 @@ export default {
                 this.showMsgOperatePos = _i;
                 this.showMsgOperate = true;
             }
+        },
+        startCommet(){
+            this.isShowCommet = true;
+            this.showMsgOperatePos = -1;
+            this.showMsgOperate = false;
         },
         // 拖拽下拉刷新
         touchStart(evt){
@@ -111,11 +130,11 @@ export default {
 
             setTimeout(() => {
                 this.load_icon.style.webkitTransform = 'rotate(0)';
-            } , 100);
+            } , 300);
 
             setTimeout(() => {
                 this.load_icon.style.top = 0;
-            } , 200);
+            } , 600);
 
             setTimeout(() => {
                 this.load_icon.classList.remove('transition');
@@ -123,7 +142,7 @@ export default {
                 this.degree = 0;
                 this.initPosY = 0; 
                 this.yDistance = 0;
-            } , 300);
+            } , 900);
         }
     },
     mounted: function(){
@@ -228,7 +247,7 @@ export default {
     width: 5.2rem;
 }
 .btns span{
-    display: inline-block;
+    float: left;
     text-align: center;
     width: 50%;
     color: #fff;
@@ -253,6 +272,59 @@ export default {
 }
 
 .transition{
-    transition: all .1s linear;
+    transition: all .3s linear;
+}
+.transition_03s{
+    transition: all .3s linear;
+}
+
+.user-input{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 1.4rem;
+    line-height: 1rem;
+    padding: 0.2rem;
+    background-color: #e1e1e1;
+    border-top: 0.5px solid #ccc;
+}
+.wrap-input{
+    height: 100%;
+}
+.wrap-input img,
+.wrap-input input,
+.wrap-input button{
+    vertical-align: text-bottom;
+
+}
+.content_chat{
+    width: 6.5rem;
+    height: 100%;
+    font-size: 17px;
+    padding: 0.1rem 0.2rem;
+    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+    border-bottom: 0.5px solid #3FB838;
+}
+.wrap-input img{
+    width: .9rem;
+    height: 90%;
+    margin: 2px 0.2rem 0;
+}
+.wrap-input button{
+    background-color: #3FB838;
+    border: .5px solid #3FB838;
+    height: 100%;
+    font-size: 16px;
+    color: #fff;
+}
+.wrap-input button[disabled]{
+    background-color: transparent;
+    border: .5px solid #999;
+    opacity: .4;
+    color: #999;
 }
 </style>
