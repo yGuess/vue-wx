@@ -191,6 +191,9 @@ input:focus{
     border: 0.5px solid #e1e1e1;
     transition: all .2s;
 }
+.btn:focus{
+    outline: none;
+}
 
 /* header - more */
 .icon{

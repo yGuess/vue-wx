@@ -12,6 +12,7 @@ import PersonalPage from './pages/personalPage.vue';
 import MorePersonalPage from './pages/morePersonalPage.vue';
 import OfficialAccount from './pages/officialAccount.vue';
 import ChatPage from './pages/chatPage.vue';
+import ChatInfo from './pages/ChatInfo.vue';
 
 // 组件
 import yHeader from './comonents/yHeader.vue';
@@ -27,6 +28,7 @@ Vue.component('PersonalPage' , PersonalPage);
 Vue.component('MorePersonalPage' , MorePersonalPage);
 Vue.component('OfficialAccount' , OfficialAccount);
 Vue.component('ChatPage' , ChatPage);
+Vue.component('ChatInfo' , ChatInfo);
 
 Vue.component('yHeader' , yHeader);
 Vue.component('tabbar' , tabbar);
@@ -69,6 +71,11 @@ const router = new VueRouter({
             path: '/chat',
             name: 'chat',
             component: ChatPage  
+        },
+        {
+            path: '/chat/chatInfo',
+            name: 'chatInfo',
+            component: ChatInfo
         }
     ]
 });
