@@ -4,14 +4,14 @@
             <ul class="list-base">
                 <li id="A" ref="A" class="letter-title">A</li>
                 <li>
-                    <div>
+                    <router-link :to="{ path: '/personalPage/PersonDetailInfo' }">
                         <div class="icon-base">
                             <img src="../../assets/weixin_resource/icons/a_b.png" alt="icon">
                         </div>
                         <div class="item-base text">
                             <p class="title one-line">会写代码的有钱人和我</p>
                         </div>
-                    </div>
+                    </router-link>
                 </li>
                 <li>
                     <div>

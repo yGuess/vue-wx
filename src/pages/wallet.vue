@@ -159,8 +159,4 @@ export default {
     height: 1rem;
     margin-bottom: 0.1rem;   
 }
-
-.more::before{
-    transform: rotateZ(-90deg);
-}
 </style>

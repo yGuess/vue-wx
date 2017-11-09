@@ -54,7 +54,9 @@
                 <li>
                     <a>
                         <span>聊天室名称</span>
-                        <div class="fr y_radio"></div>
+                        <div @click="switch_state = !switch_state" 
+                             :class="switch_state ? 'active' : ''"
+                             class="fr y_switch"></div>
                     </a>
                 </li>
             </ul>
@@ -75,7 +77,13 @@ export default {
             hCont: {
                 back: true,
                 title: '聊天讯息(42)'
-            }
+            },
+            switch_state: false
+        }
+    },
+    methods:{
+        bindSwitchState(){
+
         }
     }
 }
@@ -176,23 +184,34 @@ export default {
     background-color: red;
 }
 
-.y_radio{
+.y_switch{
     position: relative;
     display: inline-block;
-    width: 1.2rem;
+    box-sizing: border-box;
+    width: 1.1rem;
     height: 0.6rem;
-    border-radius: 18px/16px;
+    padding: 2px;
+    margin-top: 0.3rem;
+    border-radius: 0.38rem/0.36rem;
     background-color: #999;
 }
-.y_radio::before{
+.y_switch::before{
     content: '';
     position: absolute;
     z-index: 999;
-    top: 0;
-    left: 0;
-    height: 0.5rem;
-    width: 0.5rem;
+    top: 2px;
+    left: 2px;
+    height: calc(0.6rem - 4px);
+    width: calc(0.6rem - 4px);
     border-radius: 50%;
-    background-clip: #fff;
+    background-color: #fff;
+    transition: right .1s linear;
+}
+.y_switch.active{
+    background-color: #3FB838;
+}
+.y_switch.active::before{
+    left: initial;
+    right: 2px;
 }
 </style>
