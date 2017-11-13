@@ -2,14 +2,14 @@
     <div class="container-item" ref="contacts">
         <ul class="list-base">
             <li>
-                <div>
+                <router-link :to="{ path: '/friendRecoInfo'}">
                     <div class="icon-base">
                         <img src="../../assets/weixin_resource/icons/a_b.png" alt="icon">
                     </div>
                     <div class="item-base text">
                         <p class="title one-line">推荐信息</p>
                     </div>
-                </div>
+                </router-link>
             </li>
             <li>
                 <div>

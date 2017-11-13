@@ -225,3 +225,14 @@ input:focus{
     border-radius: 50%;
 }
 
+/* official-account page */
+#official-account #letter-sequence{
+    top: 1.25rem;
+    font-size: 14px;
+}
+#official-account #letter-sequence li:first-child a{
+    padding-top: 6px;
+}
+#official-account #letter-sequence a{
+    padding-bottom: 3.5px;
+}

@@ -142,8 +142,8 @@ export default {
 .plus:active{
     border-color: #999;
 }
-.plus::active::before,
-.plus::active::after{
+.plus:active::before,
+.plus:active::after{
     background-color: #999;
 }
 
@@ -166,9 +166,6 @@ export default {
 }
 .item li:last-child a{
     border-bottom: none;
-}
-.item li a .y_radio{
-    margin-top: 0.3rem;
 }
 
 .wrap-btn{
@@ -205,13 +202,12 @@ export default {
     width: calc(0.6rem - 4px);
     border-radius: 50%;
     background-color: #fff;
-    transition: right .1s linear;
+    transition: left .1s linear;
 }
 .y_switch.active{
     background-color: #3FB838;
 }
 .y_switch.active::before{
-    left: initial;
-    right: 2px;
+    left: calc(0.5rem + 2px);
 }
 </style>

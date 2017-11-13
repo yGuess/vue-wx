@@ -14,6 +14,8 @@ import OfficialAccount from './pages/officialAccount.vue';
 import ChatPage from './pages/chatPage.vue';
 import ChatInfo from './pages/ChatInfo.vue';
 import PersonDetailInfo from './pages/personDetailInfo.vue';
+import FriendRecoInfo from './pages/friendRecoInfo.vue';
+import NewFriend from './pages/newFriend.vue';
 
 // 组件
 import yHeader from './comonents/yHeader.vue';
@@ -31,6 +33,8 @@ Vue.component('OfficialAccount' , OfficialAccount);
 Vue.component('ChatPage' , ChatPage);
 Vue.component('ChatInfo' , ChatInfo);
 Vue.component('PersonDetailInfo' , PersonDetailInfo);
+Vue.component('FriendRecoInfo' , FriendRecoInfo);
+Vue.component('NewFriend' , NewFriend);
 
 Vue.component('yHeader' , yHeader);
 Vue.component('tabbar' , tabbar);
@@ -83,6 +87,16 @@ const router = new VueRouter({
             path: '/chat/chatInfo',
             name: 'chatInfo',
             component: ChatInfo
+        },
+        {
+            path: '/friendRecoInfo',
+            name: 'friendRecoInfo',
+            component: FriendRecoInfo
+        },
+        {
+            path: '/newFriend',
+            name: 'newFriend',
+            component: NewFriend
         }
     ]
 });

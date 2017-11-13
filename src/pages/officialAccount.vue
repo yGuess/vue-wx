@@ -6,7 +6,7 @@
                 <img class="icon-plus" src="../../assets/weixin_resource/icons/a9m.png" alt="add">
             </div>
         </yHeader>
-        <ListContacts></ListContacts>
+        <ListContacts v-bind:icon-to-top="false"></ListContacts>
     </div>
 </template>
 
@@ -36,8 +36,5 @@ export default {
 }
 #official-account > div{
     padding-top: 1.25rem;
-}
-#letter-sequence{
-    top: 1.25rem;
 }
 </style>

@@ -130,7 +130,9 @@
         <div id="letter-sequence" 
              @click="positioning"
              :style="'transform: translateX('+transFormX+'px)'">
-            <a href="#" data-href="#" name="top"><span data-href="#" class="icon-up-1"></span></a>
+            <a v-show="iconToTop" href="#" data-href="#" name="top">
+                <span data-href="#" class="icon-up-1"></span>
+            </a>
             <ul>
                 <li><a data-href="A">A</a></li>
                 <li><a data-href="B">B</a></li>
@@ -158,7 +160,7 @@
                 <li><a data-href="X">X</a></li>
                 <li><a data-href="V">Y</a></li>
                 <li><a data-href="W">Z</a></li>
-                <li><a data-href="\"></a></li>
+                <li><a data-href="#">#</a></li>
             </ul>
         </div>
     </div>
@@ -174,6 +176,11 @@ export default {
             type: [Number , String],
             default: 0,
             required: false
+        },
+        iconToTop: {
+            type: Boolean,
+            required: false,
+            default: true
         }
     },
     data(){

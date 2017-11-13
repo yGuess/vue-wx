@@ -226,6 +226,10 @@ export default {
 }
 .icon-dot-3{
     font-size: 18px;
+    padding: 0;
+}
+.icon-dot-3:active{
+    background-color: initial;
 }
 .share-content{
     margin-bottom: 10px;

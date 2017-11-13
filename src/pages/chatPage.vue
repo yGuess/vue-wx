@@ -35,7 +35,7 @@
                 </div>
                 <div class="chat-item-cont">
                     <div class="chat-people-name">YouGuess</div>
-                    <div class="wrap-chat-content diamond">我没挑到喜欢的RGB</div>
+                    <div class="wrap-chat-content diamond">闺蜜肯定偏笔记本，不会用太沉的东西</div>
                 </div>
             </div>
         </div>
@@ -137,7 +137,7 @@ footer{
 }
 .chat-people-name{
     font-size: 12px;
-    color: #ccc;
+    color: #999;
     padding: 2px 0;
     margin-bottom: 4px;
 }
@@ -145,12 +145,13 @@ footer{
     background-color: #fff;
     display: inline-block;
     position: relative;
-    max-width: 5rem;
+    max-width: 5.8rem;
     padding: 0.3rem;
     font-size: 14px;
     border: 0.5px solid #e1e1e1;
     letter-spacing: 0.5px;
     border-radius: 4px;
+    word-break: break-all;
 }
 #friend .chat-item-cont{
     padding-left: 1.3rem; 

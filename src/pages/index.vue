@@ -8,21 +8,31 @@
                 <img @click="showPlusList = !showPlusList" class="icon-plus" src="../../assets/weixin_resource/icons/a9m.png" alt="add">
                 <!-- <span class="more icon-dot-3"></span> -->
             </div>
-            <ul slot="plusList" class="plusList" :class="showPlusList ? 'show' : ''">
+            <ul slot="plusList" class="plusList" :class="showPlusList ? 'show' : ''">                                  
                 <li>
-                    <img src="../../assets/weixin_resource/icons/an2.png" alt="icon">建立聊天室
+                    <router-link :to="{path: '/newFriend'}">
+                        <img src="../../assets/weixin_resource/icons/an2.png" alt="icon">建立聊天室
+                    </router-link>
                 </li>
                 <li>
-                    <img src="../../assets/weixin_resource/icons/amd.png" alt="icon">新增朋友
+                    <router-link :to="{path: '/newFriend'}">
+                        <img src="../../assets/weixin_resource/icons/amd.png" alt="icon">新增朋友
+                    </router-link>
                 </li>
                 <li>
-                    <img src="../../assets/weixin_resource/icons/ani.png" alt="icon">扫描QR Code
+                    <router-link :to="{path: '/newFriend'}">
+                        <img src="../../assets/weixin_resource/icons/ani.png" alt="icon">扫描QR Code
+                    </router-link>
                 </li>
                 <li>
-                    <img src="../../assets/weixin_resource/icons/aka.png" alt="icon">收付款
+                    <router-link :to="{path: '/newFriend'}">
+                        <img src="../../assets/weixin_resource/icons/aka.png" alt="icon">收付款
+                    </router-link>
                 </li>
                 <li>
-                    <img src="../../assets/weixin_resource/icons/amx.png" alt="icon">帮助与意见反馈
+                    <router-link :to="{path: '/newFriend'}">
+                        <img src="../../assets/weixin_resource/icons/amx.png" alt="icon">帮助与意见反馈
+                    </router-link>
                 </li>
             </ul>
         </yHeader>
@@ -239,6 +249,10 @@ export default {
 }
 .plusList li:last-child{
     border-bottom: none;
+}
+.plusList li a{
+    display: block;
+    color: #fff;
 }
 .plusList img{
     width: 0.8rem;

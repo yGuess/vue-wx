@@ -8,7 +8,7 @@
 
         <div class="content">
             <div class="item username-info mt0_4 mb0_4">
-                <a>
+                <a class="clearfix">
                     <div class="fl">
                         <img src="../../assets/weixin_resource/my_avatar.jpg" alt="avatar">
                     </div>
