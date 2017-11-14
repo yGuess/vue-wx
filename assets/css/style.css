@@ -204,6 +204,7 @@ input:focus{
 }
 .icon-dot-3{
     padding: 0 0.2rem;
+    height: 100%;
 }
 .icon-dot-3:active{
     background-color: rgba(0, 0, 0, .2);
@@ -235,4 +236,9 @@ input:focus{
 }
 #official-account #letter-sequence a{
     padding-bottom: 3.5px;
+}
+
+/* signin - page */
+#signin .back{
+    border-right: none;
 }

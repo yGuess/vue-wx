@@ -169,15 +169,15 @@
                             </div>
                         </a>
                     </li>
-                    <li>
-                        <a>
+                    <li class="mt0_4">
+                        <router-link :to="{ path: 'setting'}">
                             <div class="icon-base">
                                 <img src="../../assets/weixin_resource/icons/akd.png" alt="icon">
                             </div>
                             <div class="item-base text">
-                                <p class="title one-line">会写代码的有钱人和我</p>
+                                <p class="title one-line">设定</p>
                             </div>
-                        </a>
+                        </router-link>
                     </li>
                 </ul>
             </div>

@@ -33,8 +33,6 @@ export default {
         this.pageWidth = this.container.clientWidth;
         this.minTouchWidth = this.pageWidth / 4;   
         this.children = Array.prototype.slice.call(this.container.children);
-
-        console.log(this.pageWidth);
     },
     methods: {
         touchStart(evt){
