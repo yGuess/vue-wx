@@ -1,5 +1,5 @@
 <template>
-    <header id="yHeader">
+    <header id="yHeader" ref="header">
         <span @click="back" 
               v-show="hCont.back" 
               class="back fl icon-left-open-1"></span>
@@ -22,10 +22,25 @@ export default {
     props: {
         hCont: Object
     },
+    data(){
+        return {
+            _head: ''
+        }
+    },
     methods: {
         back(){
             history.back();
+        },
+        bindScrollTop(){
+            window.scrollTop = '0px';
         }
+    },
+    mounted: function(){
+        this._head = this.$refs.header;
+        
+        this._head.addEventListener('dblclick' , (evt) => {
+            console.log(1);
+        });
     }
 }
 </script>

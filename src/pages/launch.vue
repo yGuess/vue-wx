@@ -1,26 +1,41 @@
 <template>
-    <div id="initPage">
-        <div class="wrap-btns">
+    <div id="initPage" :class="isLogin ? 'scale' : ''">
+        <div class="wrap-btns" v-show="isLogin ? '' : true">
             <button @click="signin" class="btn btn-primary">登入</button>
             <button @click="signup" class="btn">注册</button>
         </div>
-        <p class="lang">语言</p>
+        <p v-show="isLogin ? '' : true" class="lang">语言</p>
     </div>
 </template>
 
 <script>
 export default {
     name: 'initPage',
+    data(){
+        return {
+            isLogin: false
+        }
+    },
     methods:{
         signup(){
-            this.$router.replace({
+            this.$router.push({
                 path: '/signup'
             });
         },
         signin(){
-            this.$router.replace({
+            this.$router.push({
                 path: '/signin'
             });
+        }
+    },
+    created: function(){
+        this.isLogin = this.$route.query.isLogin;
+        if(this.isLogin){
+            setTimeout(() => {
+                this.$router.replace({
+                    path: '/index'
+                });
+            },1800);
         }
     }
 }
@@ -60,5 +75,13 @@ export default {
     padding: 0.4rem 0.3rem;
     color: #fff;
     letter-spacing: 1px;
+}
+
+.scale{
+    animation: scale 2s linear;
+}
+@keyframes scale{
+    from { -webkit-transform: scale(1,1); }
+    to   { -webkit-transform: scale(1.3,1.3); }
 }
 </style>

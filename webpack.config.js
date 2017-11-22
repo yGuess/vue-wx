@@ -23,7 +23,15 @@ webpack_config = {
             },
             {
                 test: /\.(jpg|png)$/,
-                loader: 'file-loader'
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'images/'
+                        }
+                    }
+                ]
             },
             {
                 test: /\.js$/,
@@ -40,7 +48,8 @@ webpack_config = {
     devServer: {
         historyApiFallback: true,
         noInfo: true,
-        hot: true
+        hot: true,
+        port: 8888
     },
     performance: {
         hints: false
@@ -48,29 +57,30 @@ webpack_config = {
     devtool: '#eval-source-map'
 };
 
-// if(process.env.NODE_ENV === 'production'){
-//     module.exports.devtool = '#source-map';
-//     module.exports.plugins = [
-//         new webpack.DefinePlugin({
-//             'process.env': {
-//                 NODE_ENV: '"production"'
-//             }
-//         }),
-//         new webpack.optimize.UglifyJsPlugin({
-//             sourceMap: true,
-//             compress: {
-//                 warnings: false
-//             }
-//         }),
-//         new webpack.LoaderOptionsPlugin({
-//             minimize: true
-//         })
-//         // new webpack.optimize.CommonsChunkPlugin({
-//         //     name: 'common'
-//         // })
+if(process.env.NODE_ENV === 'production'){
+    module.exports.devtool = '#source-map';
+    module.exports.plugins = [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: '"production"'
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'common',
+            filename: 'common.bundle.js'
+        })
         
-//     ];
-// }
+    ];
+}
 
 
 module.exports = webpack_config;

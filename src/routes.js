@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import VueResource from 'vue-resource';
 
 // 页面
 import App from './pages/app.vue';
@@ -49,10 +48,7 @@ Vue.component('yHeader' , yHeader);
 Vue.component('tabbar' , tabbar);
 Vue.component('tabContainer' , tabContainer);
 
-Vue.use(VueRouter);
-Vue.use(VueResource);
-
-const router = new VueRouter({
+module.exports = new VueRouter({
     base: '/pages/Lanch',
     routes: [
         {
@@ -131,10 +127,4 @@ const router = new VueRouter({
             component: Setting
         }
     ]
-});
-
-const main = new Vue({
-    el: '#app',
-    render: h => h(App),
-    router
 });

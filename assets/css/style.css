@@ -238,7 +238,8 @@ input:focus{
     padding-bottom: 3.5px;
 }
 
-/* signin - page */
-#signin .back{
+/* signin/up - page */
+#signin .back,
+#signup .back{
     border-right: none;
 }
